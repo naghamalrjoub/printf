@@ -1,29 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strrchr.c                                       :+:      :+:    :+:   */
+/*   ft_putnbr_fd.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nalrjoub <nalrjoub@learner.42.tech>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/09/09 15:52:12 by nalrjoub          #+#    #+#             */
-/*   Updated: 2026/09/09 15:52:13 by nalrjoub         ###   ########.fr       */
+/*   Created: 2026/09/19 18:05:29 by nalrjoub          #+#    #+#             */
+/*   Updated: 2026/09/19 18:05:35 by nalrjoub         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "libftprintf.h"
 
-char	*ft_strrchr(const char *s, int c)
+int	ft_putnbr(int nb)
 {
-	int			i;
-	size_t		len;
+	char	c;
+	long	n;
+	int		count;
 
-	len = ft_strlen(s);
-	i = len;
-	while (i >= 0)
+	count = 0;
+	n = nb;
+	if (n < 0)
 	{
-		if (s[i] == (char)c)
-			return ((char *)&s[i]);
-		i--;
+		ft_putchar('-');
+		n *= -1;
 	}
-	return (NULL);
+	if (n >= 10)
+		ft_putnbr(n / 10);
+	c = n % 10 + '0';
+	count += ft_putchar(c);
+	return (count);
 }

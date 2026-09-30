@@ -10,33 +10,44 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft/libft.h"
 #include "libftprintf.h"
 
-void	ft_printf(char *s, ...)
+int	handler(char format, va_list args)
+{
+	if (format == 'd' || format == 'i')
+		return (ft_putnbr(va_arg(args, int)));
+	else if (format == 's')
+		return (ft_putstr(va_arg(args, char *)));
+	else if (format == 'c')
+		return (ft_putchar((char)va_arg(args, int)));
+	else if (format == '%')
+		return (ft_putchar('%'));
+	else if (format == 'x' || format == 'X' || format == 'p')
+		return (ft_puthexa(format, (unsigned int)va_arg(args, unsigned int)));
+	else if (format == 'u')
+		return (ft_putunsigned(va_arg(args, unsigned int)));
+	return (-1);
+}
+
+int	ft_printf(char *s, ...)
 {
 	va_list	args;
+	int		count;
+	int		i;
 
+	count = 0;
+	i = 0;
 	va_start(args, s);
-	while (s)
+	while (s[i])
 	{
-		if (*s == '%')
+		if (s[i] == '%')
 		{
-			s++;
-			if (*s == 'd' || *s == 'i')
-				ft_putnbr_fd(va_arg(args, int), 1);
-			else if (*s == 's')
-				ft_putstr_fd(va_arg(args, char *), 1);
-			else if (*s == 'c')
-				ft_putchar_fd((char)va_arg(args, int), 1);
-			else if (*s == '%')
-				ft_putchar_fd('%', 1);
-			else if (*s == 'x' || *s == 'X' || *s == 'p')
-				ft_printhexa(*s, va_arg(args, int));
-			else if (*s == 'u')
-				ft_printunsigned(va_arg(args, unsigned int));
+			i++;
+			count += handler(s[i], args);
 		}
-		ft_putchar_fd(*s, 1);
-		s++;
+		else
+			count += ft_putchar(s[i]);
+		i++;
 	}
+	return (count);
 }

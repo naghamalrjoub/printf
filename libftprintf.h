@@ -10,10 +10,17 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PRINTF
-# define PRINTF
-# include "libft/libft.h"
+#ifndef LIBFTPRINTF_H
+# define LIBFTPRINTF_H
+# include <unistd.h>
 # include <stdarg.h>
+# include <stdlib.h>
 
-void	ft_printf(char *s, ...);
+int	ft_printf(char *s, ...);
+int	ft_putchar(char c);
+int	ft_putnbr(int nb);
+int	ft_putunsigned(unsigned int n);
+int	ft_putstr(char *s);
+int	ft_puthexa(char c, unsigned int n);
+
 #endif
