@@ -50,4 +50,6 @@ man printf
 - https://www.geeksforgeeks.org/c/variadic-functions-in-c/ (variadic functions)
 - https://medium.com/@turman1701/va-list-in-c-exploring-ft-printf-bb2a19fcd128 (variadic functions macros)
 - https://en.cppreference.com/c/variadic/ (variadic functions)
+- https://www.geeksforgeeks.org/cpp/cpp-macros/ (macros)
+- https://www.geeksforgeeks.org/c/cc-preprocessors/ (preprocessors)
 - AI was not used in this project.
