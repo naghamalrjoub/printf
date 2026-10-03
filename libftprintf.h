@@ -15,12 +15,13 @@
 # include <unistd.h>
 # include <stdarg.h>
 # include <stdlib.h>
+# include <stdint.h>
 
 int	ft_printf(char *s, ...);
 int	ft_putchar(char c);
 int	ft_putnbr(int nb);
 int	ft_putunsigned(unsigned int n);
 int	ft_putstr(char *s);
-int	ft_puthexa(char c, unsigned int n);
+int	ft_puthexa(char c, unsigned long n);
 
 #endif

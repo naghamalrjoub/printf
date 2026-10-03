@@ -22,8 +22,10 @@ int	handler(char format, va_list args)
 		return (ft_putchar((char)va_arg(args, int)));
 	else if (format == '%')
 		return (ft_putchar('%'));
-	else if (format == 'x' || format == 'X' || format == 'p')
-		return (ft_puthexa(format, (unsigned int)va_arg(args, unsigned int)));
+	else if (format == 'x' || format == 'X')
+		return (ft_puthexa(format, (unsigned long)va_arg(args, unsigned int)));
+	else if (format == 'p')
+		return (ft_puthexa(format, (unsigned long)va_arg(args, uintptr_t)));
 	else if (format == 'u')
 		return (ft_putunsigned(va_arg(args, unsigned int)));
 	return (-1);
@@ -44,10 +46,13 @@ int	ft_printf(char *s, ...)
 		{
 			i++;
 			count += handler(s[i], args);
+			if (handler(s[i], args) < 0)
+				return (-1);
 		}
 		else
 			count += ft_putchar(s[i]);
 		i++;
 	}
+	va_end(args);
 	return (count);
 }
