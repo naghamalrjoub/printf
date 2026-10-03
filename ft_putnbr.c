@@ -22,11 +22,11 @@ int	ft_putnbr(int nb)
 	n = nb;
 	if (n < 0)
 	{
-		ft_putchar('-');
+		count += ft_putchar('-');
 		n *= -1;
 	}
 	if (n >= 10)
-		ft_putnbr(n / 10);
+		count += ft_putnbr(n / 10);
 	c = n % 10 + '0';
 	count += ft_putchar(c);
 	return (count);

@@ -6,7 +6,7 @@
 /*   By: nalrjoub <nalrjoub@learner.42.tech>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/09/29 16:18:02 by nalrjoub          #+#    #+#             */
-/*   Updated: 2026/09/29 16:18:04 by nalrjoub         ###   ########.fr       */
+/*   Updated: 2026/10/03 12:33:06 by nalrjoub         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,6 @@
 # include <unistd.h>
 # include <stdarg.h>
 # include <stdlib.h>
-# include <stdint.h>
 
 int	ft_printf(char *s, ...);
 int	ft_putchar(char c);

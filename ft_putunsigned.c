@@ -15,12 +15,12 @@
 int	ft_putunsigned(unsigned int n)
 {
 	char	c;
-	int		count;
+	int		counter;
 
-	count = 0;
+	counter = 0;
 	if (n >= 10)
-		ft_putunsigned(n / 10);
+		counter += ft_putunsigned(n / 10);
 	c = n % 10 + '0';
-	count += ft_putchar(c);
-	return (count);
+	counter += ft_putchar(c);
+	return (counter);
 }

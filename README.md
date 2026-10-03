@@ -52,4 +52,5 @@ man printf
 - https://en.cppreference.com/c/variadic/ (variadic functions)
 - https://www.geeksforgeeks.org/cpp/cpp-macros/ (macros)
 - https://www.geeksforgeeks.org/c/cc-preprocessors/ (preprocessors)
+- https://stackoverflow.com/questions/57164562/are-va-arg-arguments-to-functions-stored-in-stack-or-heap-memory (how function arguments are stroed in memory)
 - AI was not used in this project.
