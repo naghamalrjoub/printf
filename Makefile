@@ -3,7 +3,8 @@ src := ft_printf.c \
 	   ft_puthexa.c \
 	   ft_putnbr.c \
 	   ft_putstr.c \
-	   ft_putunsigned.c
+	   ft_putunsigned.c \
+	   ft_putptr.c
 
 obj := $(src:.c=.o)
 NAME = libftprintf.a

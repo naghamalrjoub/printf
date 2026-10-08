@@ -1,38 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_puthexa.c                                       :+:      :+:    :+:   */
+/*   ft_putptr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nalrjoub <nalrjoub@learner.42.tech>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/09/30 11:23:03 by nalrjoub          #+#    #+#             */
-/*   Updated: 2026/10/05 14:43:32 by nalrjoub         ###   ########.fr       */
+/*   Created: 2026/10/08 10:44:57 by nalrjoub          #+#    #+#             */
+/*   Updated: 2026/10/08 10:44:59 by nalrjoub         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
-
-int	ft_puthexa(char c, unsigned long n)
+int	ft_putptr(unsigned long n)
 {
-	char	*sc;
-	char	*s;
-	int		count;
-
-	count = 0;
-	s = "0123456789abcdef";
-	sc = "0123456789ABCDEF";
-	if (c == 'p' && !n)
+	if (!n)
 		return (ft_putstr("(nil)"));
-	if (n > 15)
-	{
-		if (c == 'x')
-			count += ft_puthexa(c, n / 16);
-		else
-			count += ft_puthexa(c, n / 16);
-	}
-	if (c == 'x')
-		count += ft_putchar(s[n % 16]);
-	else if (c == 'X')
-		count += ft_putchar(sc[n % 16]);
-	return (count);
+	return (ft_putstr("0x") + ft_puthexa('x', n));
 }

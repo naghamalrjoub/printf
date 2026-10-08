@@ -1,5 +1,4 @@
-#include "libftprintf.h"
-#include <stdlib.h>
+#include "ft_printf.h"
 
 int main()
 {
@@ -9,12 +8,13 @@ int main()
 	char c = 'c';
 	char *s = "hello";
 	char *ns = s;
-	char *p = ns;
+	char *p = s;
 	int hexa = 2322004;
 	
 
 	int count = 0;
 	
+	count = ft_printf("%i %d %c %s %p %X %x %% %u", i, mi, c, s, p, hexa, hexa, a);
 	count = ft_printf("%i\n", i);
 	ft_printf("count = %d\n", count);
 	count = ft_printf("%i\n", mi);

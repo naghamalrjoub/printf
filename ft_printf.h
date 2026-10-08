@@ -1,26 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putunsigned.c                                   :+:      :+:    :+:   */
+/*   libftprintf.h                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nalrjoub <nalrjoub@learner.42.tech>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/09/30 15:10:43 by nalrjoub          #+#    #+#             */
-/*   Updated: 2026/10/05 14:44:22 by nalrjoub         ###   ########.fr       */
+/*   Created: 2026/09/29 16:18:02 by nalrjoub          #+#    #+#             */
+/*   Updated: 2026/10/03 12:33:06 by nalrjoub         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#ifndef FT_PRINTF_H
+# define FT_PRINTF_H
+# include <unistd.h>
+# include <stdarg.h>
 
-int	ft_putunsigned(unsigned int n)
-{
-	char	c;
-	int		counter;
+int	ft_printf(const char *s, ...);
+int	ft_putchar(char c);
+int	ft_putnbr(int nb);
+int	ft_putunsigned(unsigned int n);
+int	ft_putstr(char *s);
+int	ft_puthexa(char c, unsigned long n);
+int	ft_putptr(unsigned long n);
 
-	counter = 0;
-	if (n >= 10)
-		counter += ft_putunsigned(n / 10);
-	c = n % 10 + '0';
-	counter += ft_putchar(c);
-	return (counter);
-}
+#endif

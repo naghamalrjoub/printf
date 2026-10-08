@@ -14,9 +14,8 @@
 # define LIBFTPRINTF_H
 # include <unistd.h>
 # include <stdarg.h>
-# include <stdlib.h>
 
-int	ft_printf(char *s, ...);
+int	ft_printf(const char *s, ...);
 int	ft_putchar(char c);
 int	ft_putnbr(int nb);
 int	ft_putunsigned(unsigned int n);

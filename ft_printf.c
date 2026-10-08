@@ -6,11 +6,11 @@
 /*   By: nalrjoub <nalrjoub@learner.42.tech>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/09/29 16:15:17 by nalrjoub          #+#    #+#             */
-/*   Updated: 2026/10/03 12:33:18 by nalrjoub         ###   ########.fr       */
+/*   Updated: 2026/10/05 14:43:11 by nalrjoub         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libftprintf.h"
+#include "ft_printf.h"
 
 static int	handler(char format, va_list args)
 {
@@ -25,13 +25,22 @@ static int	handler(char format, va_list args)
 	else if (format == 'x' || format == 'X')
 		return (ft_puthexa(format, (unsigned long)va_arg(args, unsigned int)));
 	else if (format == 'p')
-		return (ft_puthexa(format, (unsigned long)va_arg(args, void *)));
+		return (ft_putptr((unsigned long)va_arg(args, void *)));
 	else if (format == 'u')
 		return (ft_putunsigned(va_arg(args, unsigned int)));
 	return (-1);
 }
 
-int	ft_printf(char *s, ...)
+static int	check(const char *s, int i, int *count, va_list args)
+{
+	int	ans;
+
+	ans = handler(s[i], args);
+	*(count) += ans;
+	return (ans);
+}
+
+int	ft_printf(const char *s, ...)
 {
 	va_list	args;
 	int		count;
@@ -39,13 +48,16 @@ int	ft_printf(char *s, ...)
 
 	count = 0;
 	i = 0;
+	if (!s)
+		return (-1);
 	va_start(args, s);
 	while (s[i])
 	{
-		if (s[i] == '%')
+		if (s[i + 1] && s[i] == '%')
 		{
 			i++;
-			count += handler(s[i], args);
+			if (check(s, i, &count, args) < 0)
+				return (-1);
 		}
 		else
 			count += ft_putchar(s[i]);
